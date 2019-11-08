@@ -20,3 +20,7 @@ def list_presets():
 def goto_preset(id):
 	result = presets.goto_preset(id)
 	return result
+
+
+if __name__ == '__main__':
+	app.run(debug=True, host='0.0.0.0')
