@@ -1,6 +1,10 @@
 FROM python:3.7-alpine
-COPY . /app
+RUN apk add libxml2-dev libxslt-dev gcc musl-dev && mkdir /app
+
+COPY ./requirements.txt /app
+
 WORKDIR /app
 RUN pip install -r requirements.txt
+COPY . /app
 ENTRYPOINT ["python"]
-CMD ["main-flask.py"]
+CMD ["app.py"]
