@@ -22,5 +22,8 @@ def goto_preset(id):
 	ptz_service = mycam.create_ptz_service()
 	ptz_params = {'ProfileToken': '000', 'PresetToken': id}
 	go = ptz_service.GotoPreset(ptz_params)
-
 	return 'ok'
+
+def start_patrol():
+	mycam = ONVIFCamera(IP, PORT, USER, PASS, 'wsdl/')
+	ptz_service = mycam.create_ptz_service()

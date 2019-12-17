@@ -1,6 +1,6 @@
 from flask import Flask
-
-import components.presets as presets
+import os
+import components.ptz as presets
 
 app = Flask(__name__)
 
@@ -21,6 +21,16 @@ def goto_preset(id):
 	result = presets.goto_preset(id)
 	return result
 
+@app.route("/sweep/<home>")
+def sweep(home):
+	result =
+
 
 if __name__ == '__main__':
-	app.run(debug=True, host='0.0.0.0')
+	if os.environ['env'] == 'prod':
+		debug_state = False
+	elif os.environ['env'] == 'dev':
+		debug_state = True
+	else:
+		debug_state = True
+	app.run(debug=debug_state, host='0.0.0.0')

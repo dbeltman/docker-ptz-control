@@ -2,7 +2,7 @@ import uvicorn
 from starlette.applications import Starlette
 from starlette.responses import JSONResponse
 
-import components.presets as presets
+import components.ptz as presets
 
 app = Starlette(debug=True)
 
