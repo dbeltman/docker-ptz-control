@@ -1,5 +1,5 @@
 from flask import Flask, request
-
+import os
 import components.db as database
 from components.ptz import get_presets_by_id, goto_preset, get_preset_id_by_name
 
@@ -38,4 +38,10 @@ def set_to_preset():
 
 
 if __name__ == '__main__':
-	app.run(debug=True, host='0.0.0.0')
+	if os.environ['env'] == 'prod':
+		debug_state = False
+	elif os.environ['env'] == 'dev':
+		debug_state = True
+	else:
+		debug_state = True
+	app.run(debug=debug_state, host='0.0.0.0')
