@@ -21,10 +21,6 @@ def goto_preset(id):
 	result = presets.goto_preset(id)
 	return result
 
-@app.route("/sweep/<home>")
-def sweep(home):
-	result =
-
 
 if __name__ == '__main__':
 	if os.environ['env'] == 'prod':

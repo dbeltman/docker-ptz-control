@@ -1,0 +1,8 @@
+{
+  "presets": {
+    "front": "001",
+    "cars": "000",
+    "garden": "002",
+    "terrace": "003"
+  }
+}

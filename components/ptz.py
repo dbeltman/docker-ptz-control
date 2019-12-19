@@ -17,13 +17,28 @@ def get_presets_by_id(self):
 	return preset_list
 
 
-def goto_preset(id):
+def goto_preset(preset_id):
 	mycam = ONVIFCamera(IP, PORT, USER, PASS, 'wsdl/')
 	ptz_service = mycam.create_ptz_service()
-	ptz_params = {'ProfileToken': '000', 'PresetToken': id}
+	ptz_params = {'ProfileToken': '000', 'PresetToken': preset_id}
 	go = ptz_service.GotoPreset(ptz_params)
 	return 'ok'
 
-def start_patrol():
+
+def get_preset():
 	mycam = ONVIFCamera(IP, PORT, USER, PASS, 'wsdl/')
 	ptz_service = mycam.create_ptz_service()
+	ptz_params = {'ProfileToken': '000'}
+	current_preset = ptz_service.GetStatus(ptz_params)
+	return current_preset
+
+
+def get_preset_id_by_name(name):
+	preset_list = {
+		'front': '001',
+		'cars': '000',
+		'garden': '003',
+		'terrace': '002'
+	}
+	preset_id = preset_list[name]
+	return preset_id
