@@ -38,7 +38,9 @@ def get_preset_id_by_name(name):
 		'front': '001',
 		'cars': '000',
 		'garden': '003',
-		'terrace': '002'
+		'terrace': '002',
+		'b-gate': '006',
+		'a-gate': '005'
 	}
 	preset_id = preset_list[name]
 	return preset_id
