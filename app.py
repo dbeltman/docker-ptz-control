@@ -11,10 +11,10 @@ def hello():
 	return "Hello, World!"
 
 
-@app.route("/presets")
-def list_presets():
-	preset_list = get_presets_by_id()
-	return str(preset_list)
+# @app.route("/presets")
+# def list_presets():
+# 	preset_list = get_presets_by_id()
+# 	return str(preset_list)
 
 
 @app.route("/goto/<id>")
